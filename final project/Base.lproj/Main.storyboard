@@ -243,7 +243,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cSB-Ot-fpI" userLabel="Add Class Stack View">
-                                <rect key="frame" x="19" y="235.5" width="337.5" height="196"/>
+                                <rect key="frame" x="19" y="205.5" width="337.5" height="256"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W4P-tG-WOv" userLabel="Name Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="30"/>
@@ -334,6 +334,17 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvd-Uw-gCO">
+                                        <rect key="frame" x="0.0" y="201" width="337.5" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="ds2-gz-ImC"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-wQ-dNq">
+                                        <rect key="frame" x="0.0" y="226" width="337.5" height="30"/>
+                                        <state key="normal" title="Add Class"/>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="AFq-R9-J2k" firstAttribute="width" secondItem="cSB-Ot-fpI" secondAttribute="width" id="Mn9-iE-zsu"/>
