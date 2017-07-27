@@ -14,7 +14,7 @@
         <!--GPA Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GPACalculatorViewController" customModule="final_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GPAListViewController" customModule="final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -81,7 +81,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vGI-VK-xdh" id="9mU-kb-jU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-mm-fnu" userLabel="Cell Stack View">
@@ -288,7 +288,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7JI-0T-Mdv">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7JI-0T-Mdv" userLabel="Projected Grade Label">
                                                 <rect key="frame" x="169" y="0.0" width="168.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -326,7 +326,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFl-rQ-EAq">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFl-rQ-EAq" userLabel="Old Grade Label">
                                                 <rect key="frame" x="169" y="0.0" width="168.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -344,6 +344,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-wQ-dNq">
                                         <rect key="frame" x="0.0" y="226" width="337.5" height="30"/>
                                         <state key="normal" title="Add Class"/>
+                                        <connections>
+                                            <action selector="addClassButtonPressed:" destination="rdC-rF-lgm" eventType="touchUpInside" id="sud-Zl-6Gw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -358,6 +361,13 @@
                             <constraint firstItem="cSB-Ot-fpI" firstAttribute="centerY" secondItem="WTR-oJ-cJ5" secondAttribute="centerY" id="oXy-LY-i1B"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="creditHourLabel" destination="D3m-ba-evH" id="7kY-jl-nrK"/>
+                        <outlet property="nameLabel" destination="mW4-pF-7eQ" id="yYY-NL-MAe"/>
+                        <outlet property="oldGradeLabel" destination="GFl-rQ-EAq" id="Wpi-jt-KVz"/>
+                        <outlet property="projectedGradeLabel" destination="7JI-0T-Mdv" id="zfT-rN-TeA"/>
+                        <outlet property="replacementSwitch" destination="Udu-5Q-dWk" id="TSv-Zj-9cU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMW-m2-r75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,7 +376,7 @@
         <!--Previous Details-->
         <scene sceneID="zVW-jF-EFW">
             <objects>
-                <viewController title="Previous Details" id="tdA-Gs-if0" sceneMemberID="viewController">
+                <viewController title="Previous Details" id="tdA-Gs-if0" customClass="EditOldGPAViewController" customModule="final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XHo-fy-tBS"/>
                         <viewControllerLayoutGuide type="bottom" id="UQB-KO-75x"/>
@@ -376,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HmP-Ht-GxP" userLabel="Prevouis Details Stack View">
-                                <rect key="frame" x="19" y="301" width="337.5" height="65"/>
+                                <rect key="frame" x="19" y="283.5" width="337.5" height="100"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RbV-WB-Mt6" userLabel="Previous Hours Taken Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="30"/>
@@ -412,6 +422,13 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QV1-5f-kl9">
+                                        <rect key="frame" x="0.0" y="70" width="337.5" height="30"/>
+                                        <state key="normal" title="Update"/>
+                                        <connections>
+                                            <action selector="updateButtonPressed:" destination="tdA-Gs-if0" eventType="touchUpInside" id="H7A-ou-bF6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -422,6 +439,10 @@
                             <constraint firstItem="HmP-Ht-GxP" firstAttribute="centerX" secondItem="SLI-rz-kW9" secondAttribute="centerX" id="oGG-pc-WxS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="creditHourLabel" destination="cKI-nU-O2R" id="M6F-V2-Y2x"/>
+                        <outlet property="gpaLabel" destination="lgE-nn-r6h" id="zx5-u4-A0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-rz-W1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
