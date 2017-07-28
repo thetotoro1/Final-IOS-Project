@@ -57,7 +57,7 @@
                                                 <rect key="frame" x="326.5" y="0.0" width="30" height="50"/>
                                                 <state key="normal" title="edit"/>
                                                 <connections>
-                                                    <segue destination="tdA-Gs-if0" kind="show" id="M3z-0Z-GN5"/>
+                                                    <segue destination="tdA-Gs-if0" kind="show" identifier="previousDetailsSegue" id="M3z-0Z-GN5"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -72,12 +72,12 @@
                                     <constraint firstAttribute="height" constant="50" id="xeX-YS-kPi"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-ch-XKq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-ch-XKq">
                                 <rect key="frame" x="0.0" y="114" width="375" height="425"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.8204420576" green="0.81874087299999998" blue="0.85520563469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gpaCell" rowHeight="90" id="vGI-VK-xdh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gpaCell" rowHeight="90" id="vGI-VK-xdh" customClass="GPATableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vGI-VK-xdh" id="9mU-kb-jU5">
@@ -131,6 +131,12 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="UKI-mm-fnu" secondAttribute="bottom" id="kcs-Uz-pqv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="classNameLabel" destination="43f-AZ-CHn" id="qqt-bN-VA4"/>
+                                            <outlet property="creditHourLabel" destination="YQO-OL-bhb" id="Qz3-Qa-xnW"/>
+                                            <outlet property="gradeLabel" destination="JQl-dw-yUm" id="nAQ-IG-dw4"/>
+                                            <outlet property="gradePointsLabel" destination="fad-8z-dgT" id="rdQ-9O-cpo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -225,6 +231,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="projectedGradeLabel" destination="iGf-XV-3q9" id="LEI-X3-br0"/>
+                        <outlet property="tableView" destination="GBF-ch-XKq" id="qlQ-bo-Hbu"/>
+                        <outlet property="totalCreditHoursLabel" destination="z8h-Og-9Eb" id="Vhc-E7-fWH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -349,6 +360,7 @@
                                         <state key="normal" title="Add Class"/>
                                         <connections>
                                             <action selector="addClassButtonPressed:" destination="rdC-rF-lgm" eventType="touchUpInside" id="sud-Zl-6Gw"/>
+                                            <segue destination="oj4-Lq-qg2" kind="unwind" unwindAction="unwindToClassListWithSender:" id="0kO-ff-4Lp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -373,6 +385,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addClassButton" destination="7Xk-wQ-dNq" id="SMC-AK-Gpa"/>
                         <outlet property="creditHourTextField" destination="D3m-ba-evH" id="rnH-Hg-nlF"/>
                         <outlet property="nameTextField" destination="mW4-pF-7eQ" id="UdS-hl-qFQ"/>
                         <outlet property="oldGradeLabel" destination="vN7-tS-ehS" id="SbR-Ua-LVx"/>
@@ -384,6 +397,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMW-m2-r75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oj4-Lq-qg2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2055" y="-838"/>
         </scene>
