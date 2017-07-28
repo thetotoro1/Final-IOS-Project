@@ -1,6 +1,6 @@
 import UIKit
 
-class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerViewDelegate {
+class AddClassViewController: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet weak var replacementLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -9,9 +9,11 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
     @IBOutlet weak var replacementSwitch: UISwitch!
     @IBOutlet weak var oldGradeLabel: UILabel!
     @IBOutlet weak var oldGradeTextField: UITextField!
+    @IBOutlet weak var tappableBackground: UIView!
     
     fileprivate var model = AddClassModel()
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
         oldGradeTextField.inputView = oldGradePickerView
         
         
+        // Configure tappable background when keyboard or picker is displayed
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(backgroundTapped))
+        tappableBackground.addGestureRecognizer(tapGestureRecognizer)
+        tappableBackground.isHidden = true
         
         
         
@@ -47,7 +53,13 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
         
     }
     
-
+    
+    @objc private func backgroundTapped() {
+        // this actually loops through all this view's subviews and resigns the first responder on all of them
+        self.view.endEditing(true)
+        
+        tappableBackground.isHidden = true
+    }
 
     @IBAction func replacementSwitchPressed(_ sender: UISwitch) {
         if sender.isOn {
@@ -65,10 +77,7 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
     }
     
    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -77,15 +86,11 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 0 {
-            
             return model.gradeOptions.count
-            
         }
         
         if pickerView.tag == 1 {
-            
             return model.oldGradeOptions.count
-            
         }
         
         return 0
@@ -123,6 +128,23 @@ class AddClassViewController: UIViewController,  UITextFieldDelegate, UIPickerVi
             oldGradeTextField.text = model.oldGradeOptions[row]
             
         }
+    }
+    
+}
+
+
+
+extension AddClassViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        tappableBackground.isHidden = false
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        tappableBackground.isHidden = true
+        return true
     }
     
 }

@@ -356,11 +356,19 @@
                                     <constraint firstItem="AFq-R9-J2k" firstAttribute="width" secondItem="cSB-Ot-fpI" secondAttribute="width" id="Mn9-iE-zsu"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-he-eTr" userLabel="Tappable Background">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cSB-Ot-fpI" firstAttribute="centerX" secondItem="WTR-oJ-cJ5" secondAttribute="centerX" id="2r5-pV-FH2"/>
+                            <constraint firstItem="m5M-he-eTr" firstAttribute="width" secondItem="WTR-oJ-cJ5" secondAttribute="width" id="B7z-UW-04g"/>
+                            <constraint firstItem="m5M-he-eTr" firstAttribute="height" secondItem="WTR-oJ-cJ5" secondAttribute="height" id="bAp-3u-Iiv"/>
+                            <constraint firstItem="m5M-he-eTr" firstAttribute="centerY" secondItem="WTR-oJ-cJ5" secondAttribute="centerY" id="iBb-fa-ZVJ"/>
                             <constraint firstItem="cSB-Ot-fpI" firstAttribute="width" secondItem="WTR-oJ-cJ5" secondAttribute="width" multiplier="0.9" id="j98-WU-UeC"/>
+                            <constraint firstItem="m5M-he-eTr" firstAttribute="centerX" secondItem="WTR-oJ-cJ5" secondAttribute="centerX" id="k0Z-Mp-gLY"/>
                             <constraint firstItem="cSB-Ot-fpI" firstAttribute="centerY" secondItem="WTR-oJ-cJ5" secondAttribute="centerY" id="oXy-LY-i1B"/>
                         </constraints>
                     </view>
@@ -372,6 +380,7 @@
                         <outlet property="projectedGradeTextField" destination="7JI-0T-Mdv" id="inU-pH-yiT"/>
                         <outlet property="replacementLabel" destination="lns-XM-NoO" id="yxz-h9-XSy"/>
                         <outlet property="replacementSwitch" destination="Udu-5Q-dWk" id="TSv-Zj-9cU"/>
+                        <outlet property="tappableBackground" destination="m5M-he-eTr" id="nwm-B5-aRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KMW-m2-r75" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -445,8 +454,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="creditHourLabel" destination="cKI-nU-O2R" id="M6F-V2-Y2x"/>
-                        <outlet property="gpaLabel" destination="lgE-nn-r6h" id="zx5-u4-A0s"/>
+                        <outlet property="creditHourTextField" destination="cKI-nU-O2R" id="PuU-Tq-Am2"/>
+                        <outlet property="gpaTextField" destination="lgE-nn-r6h" id="vcG-Uq-WOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-rz-W1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
