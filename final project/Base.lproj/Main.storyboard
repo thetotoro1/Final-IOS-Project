@@ -77,11 +77,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.8204420576" green="0.81874087299999998" blue="0.85520563469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gpaCell" rowHeight="90" id="vGI-VK-xdh" customClass="GPATableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GPACell" rowHeight="90" id="vGI-VK-xdh" customClass="GPATableViewCell" customModule="final_project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vGI-VK-xdh" id="9mU-kb-jU5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UKI-mm-fnu" userLabel="Cell Stack View">
@@ -132,10 +132,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="classNameLabel" destination="43f-AZ-CHn" id="qqt-bN-VA4"/>
-                                            <outlet property="creditHourLabel" destination="YQO-OL-bhb" id="Qz3-Qa-xnW"/>
-                                            <outlet property="gradeLabel" destination="JQl-dw-yUm" id="nAQ-IG-dw4"/>
-                                            <outlet property="gradePointsLabel" destination="fad-8z-dgT" id="rdQ-9O-cpo"/>
+                                            <outlet property="classNameLabel" destination="43f-AZ-CHn" id="i7F-Ck-Oex"/>
+                                            <outlet property="creditHourLabel" destination="YQO-OL-bhb" id="HEs-2s-YOg"/>
+                                            <outlet property="gradeLabel" destination="JQl-dw-yUm" id="oGu-ZZ-y6z"/>
+                                            <outlet property="gradePointsLabel" destination="fad-8z-dgT" id="gk9-2F-3Nd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

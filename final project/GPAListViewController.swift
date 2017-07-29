@@ -1,6 +1,6 @@
 import UIKit
 
-class GPAListViewController: UIViewController {
+class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -11,11 +11,20 @@ class GPAListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let testCell = GPAEntry(name: "Test", creditHours: 3, projectedGrade: "A", replacementGrade: false, oldGrade: "")
+
         
-        model.addGPAEntry(gpaEntry: testCell)
+        tableView.delegate = self
+        tableView.dataSource = self
+
         
-        tableView.register(GPATableViewCell.self, forCellReuseIdentifier: "cell")
+       // tableView.register(GPATableViewCell.self, forCellReuseIdentifier: "cell")
+        
+
+        
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: ""))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "B", replacementGrade: false, oldGrade: ""))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: false, oldGrade: ""))
+
     }
 
     
@@ -31,11 +40,6 @@ class GPAListViewController: UIViewController {
         }
         
     }
-}
-
-/*
-extension GPAListViewController: UITableViewDataSource {
-   
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,24 +51,39 @@ extension GPAListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        print("in tableview cell for row at")
+        
+
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as? GPATableViewCell,
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GPACell", for: indexPath) as? GPATableViewCell,
             let gpaEntry = model.getEntry(atIndex: indexPath.row)
             else {
                 return UITableViewCell()
         }
         
+
         
-        print("In tableview cellforrowat")
+        
+        print("trying to decorate")
+        
+        print("\(gpaEntry.name) - \(gpaEntry.creditHours) - \(gpaEntry.projectedGrade)")
+        
         
         cell.decorate(with: gpaEntry)
         
+        
+        
+        
+ 
         return cell
+ 
     }
     
- 
+    
+    
     
 }
 
-  */
+
 

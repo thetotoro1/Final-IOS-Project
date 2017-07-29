@@ -14,6 +14,8 @@ class GPATableViewCell: UITableViewCell {
         creditHourLabel.text = String(gpaEntry.creditHours)
         gradeLabel.text = gpaEntry.projectedGrade
         gradePointsLabel.text = "Test"
+        
+        print("cell decorated")
     }
     
 }
