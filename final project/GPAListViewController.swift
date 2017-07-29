@@ -17,14 +17,13 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
 
         
-       // tableView.register(GPATableViewCell.self, forCellReuseIdentifier: "cell")
         
-
-        
+        //test tableview
+/*
         model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: ""))
         model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "B", replacementGrade: false, oldGrade: ""))
         model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: false, oldGrade: ""))
-
+*/
     }
 
     

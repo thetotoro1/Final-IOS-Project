@@ -54,6 +54,10 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         projectedGradeTextField.delegate = self
         oldGradeTextField.delegate = self
         
+        
+        
+        
+        addClassButton.isEnabled = false
     }
     
     
@@ -79,8 +83,32 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         
     }
     
+    @IBAction func nameTextFieldEdited(_ sender: UITextField) {
+        checkValidation()
+    }
    
+    @IBAction func creditHourTextFieldEdited(_ sender: UITextField) {
+        checkValidation()
+    }
 
+    func checkValidation(){
+        guard
+            let nameTextString = nameTextField.text,
+            let creditHourString = creditHourTextField.text,
+            let creditHourDouble = Double(creditHourString)
+            else {
+            addClassButton.isEnabled = false
+            return
+        }
+        
+        
+        if model.checkValidation(className:  nameTextString, creditHours: creditHourDouble) {
+            addClassButton.isEnabled = true
+        }
+        else {
+            return
+        }
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

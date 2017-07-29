@@ -6,4 +6,15 @@ class AddClassModel {
     var oldGradeOptions = ["","C-", "D+", "D", "D-", "F", "FN"]
     
     
+    func checkValidation(className: String, creditHours: Double) -> Bool {
+        
+        if className != "" && creditHours >= 0 {
+            return true
+        }
+        
+        
+        return false
+    }
+    
+    
 }
