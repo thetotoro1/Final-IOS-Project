@@ -12,6 +12,7 @@
 		4AAF505B1F2A57F500B764E3 /* EditOldGPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF505A1F2A57F500B764E3 /* EditOldGPAViewController.swift */; };
 		4AAF505D1F2A986F00B764E3 /* AddClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF505C1F2A986F00B764E3 /* AddClassModel.swift */; };
 		4AAF505F1F2B830500B764E3 /* GPATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF505E1F2B830500B764E3 /* GPATableViewCell.swift */; };
+		4AAF50621F2D2C3500B764E3 /* GPAEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF50611F2D2C3500B764E3 /* GPAEntry.swift */; };
 		4AF3A2381F268FF30060AE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3A2371F268FF30060AE36 /* AppDelegate.swift */; };
 		4AF3A23A1F268FF30060AE36 /* GPAListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3A2391F268FF30060AE36 /* GPAListViewController.swift */; };
 		4AF3A23D1F268FF30060AE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AF3A23B1F268FF30060AE36 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		4AAF505A1F2A57F500B764E3 /* EditOldGPAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOldGPAViewController.swift; sourceTree = "<group>"; };
 		4AAF505C1F2A986F00B764E3 /* AddClassModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassModel.swift; sourceTree = "<group>"; };
 		4AAF505E1F2B830500B764E3 /* GPATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPATableViewCell.swift; sourceTree = "<group>"; };
+		4AAF50611F2D2C3500B764E3 /* GPAEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAEntry.swift; sourceTree = "<group>"; };
 		4AF3A2341F268FF30060AE36 /* final project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "final project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AF3A2371F268FF30060AE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AF3A2391F268FF30060AE36 /* GPAListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAListViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				4AAF50561F2A560E00B764E3 /* AddClassViewController.swift */,
 				4AAF505C1F2A986F00B764E3 /* AddClassModel.swift */,
 				4AAF505A1F2A57F500B764E3 /* EditOldGPAViewController.swift */,
+				4AAF50611F2D2C3500B764E3 /* GPAEntry.swift */,
 				4AF3A23B1F268FF30060AE36 /* Main.storyboard */,
 			);
 			path = "final project";
@@ -162,6 +165,7 @@
 				4AF3A23A1F268FF30060AE36 /* GPAListViewController.swift in Sources */,
 				4AAF50571F2A560E00B764E3 /* AddClassViewController.swift in Sources */,
 				4AAF505D1F2A986F00B764E3 /* AddClassModel.swift in Sources */,
+				4AAF50621F2D2C3500B764E3 /* GPAEntry.swift in Sources */,
 				4AAF505F1F2B830500B764E3 /* GPATableViewCell.swift in Sources */,
 				4AAF50591F2A57CE00B764E3 /* GPAListModel.swift in Sources */,
 				4AF3A2381F268FF30060AE36 /* AppDelegate.swift in Sources */,

@@ -366,7 +366,7 @@
                                         <state key="normal" title="Add Class"/>
                                         <connections>
                                             <action selector="addClassButtonPressed:" destination="rdC-rF-lgm" eventType="touchUpInside" id="sud-Zl-6Gw"/>
-                                            <segue destination="oj4-Lq-qg2" kind="unwind" unwindAction="unwindToClassListWithSender:" id="0kO-ff-4Lp"/>
+                                            <segue destination="oj4-Lq-qg2" kind="unwind" unwindAction="unwindToClassListWithSender:" id="pnb-G0-V6X"/>
                                         </connections>
                                     </button>
                                 </subviews>

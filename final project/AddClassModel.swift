@@ -16,5 +16,13 @@ class AddClassModel {
         return false
     }
     
+    func calculateGPAPoints(creditHours: Int, projectedGrade: String, isReplacementGrade: Bool, oldGrade: String) -> Int {
+        
+        
+        
+        
+        
+        return 0
+    }
     
 }

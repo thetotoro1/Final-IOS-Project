@@ -162,13 +162,15 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
     }
     
     
-    // This method lets you configure a view controller before it's presented.
+    // configure gpaEntry
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
         
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === addClassButton else {
+        print("preparing to segue back")
+        
+        guard let button = sender as? UIButton, button === addClassButton else {
+            print("error in sender addClassButton")
             return
         }
         
@@ -183,9 +185,8 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         let projectedGrade = projectedGradeTextField.text ?? ""
         let replacementGrade = replacementSwitch.isOn
 
-
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-        gpaEntry = GPAEntry(name: className, creditHours: creditHours, projectedGrade: projectedGrade, replacementGrade: replacementGrade, oldGrade: oldGrade)
+        print("seting gpaEntry")
+        gpaEntry = GPAEntry(name: className, creditHours: creditHours, projectedGrade: projectedGrade, replacementGrade: replacementGrade, oldGrade: oldGrade, gpaPoints: 12)
     }
     
     

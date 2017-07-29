@@ -31,9 +31,9 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let sourceViewController = sender.source as? AddClassViewController, let gpaEntry = sourceViewController.gpaEntry {
             
-            // Add a new meal.
+            // Add a GPAEntry
+            print("unwinging and creating gpaEntry")
             let newIndexPath = IndexPath(row: model.count, section: 0)
-            
             model.addGPAEntry(gpaEntry: gpaEntry)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
