@@ -5,7 +5,7 @@ import Foundation
 
 class GPAListModel {
     
-    private var GPAEntries = [GPAEntry]()
+    private var gpaEntries = [GPAEntry]()
     
     var previousCreditHours: Int = 0
     var previousGPA: Double = 0
@@ -17,15 +17,19 @@ class GPAListModel {
     
     
     var count: Int {
-        return GPAEntries.count
+        return gpaEntries.count
     }
     
     func addGPAEntry(gpaEntry: GPAEntry){
-        GPAEntries.append(gpaEntry)
+        gpaEntries.append(gpaEntry)
     }
     
     func getEntry(atIndex index: Int) -> GPAEntry?   {
-        return GPAEntries.element(at: index)
+        return gpaEntries.element(at: index)
+    }
+    
+    func addGPAEntry(at index: Int, gpaEntry: GPAEntry){
+        gpaEntries[index] = gpaEntry
     }
     
 }

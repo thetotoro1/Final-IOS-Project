@@ -28,7 +28,7 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         //test tableview
 
         model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: "", gpaPoints: 10))
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "B", replacementGrade: false, oldGrade: "", gpaPoints: 12))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "", replacementGrade: false, oldGrade: "", gpaPoints: 12))
         model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: true, oldGrade: "D", gpaPoints: 3))
 
     }
@@ -38,11 +38,21 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let sourceViewController = sender.source as? AddClassViewController, let gpaEntry = sourceViewController.gpaEntry {
             
-            // Add a GPAEntry
-            print("unwinging and creating gpaEntry")
-            let newIndexPath = IndexPath(row: model.count, section: 0)
-            model.addGPAEntry(gpaEntry: gpaEntry)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update gpaEntry
+                print("Updating Entry at row \(selectedIndexPath)")
+                model.addGPAEntry(at: selectedIndexPath.row, gpaEntry: gpaEntry)
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                tableView.reloadData()
+            }
+            else {
+                // Add a GPAEntry
+                print("Adding new gpaEntry")
+                let newIndexPath = IndexPath(row: model.count, section: 0)
+                model.addGPAEntry(gpaEntry: gpaEntry)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
         
     }
