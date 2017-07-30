@@ -218,7 +218,7 @@
                     <connections>
                         <outlet property="previousGPALabel" destination="5SK-Jh-bV8" id="l8x-xE-wi6"/>
                         <outlet property="previousHoursLabel" destination="of8-K9-sfb" id="BAW-ae-5iH"/>
-                        <outlet property="projectedGradeLabel" destination="iGf-XV-3q9" id="LEI-X3-br0"/>
+                        <outlet property="projectedGPALabel" destination="iGf-XV-3q9" id="C3Y-B6-zJc"/>
                         <outlet property="tableView" destination="GBF-ch-XKq" id="qlQ-bo-Hbu"/>
                         <outlet property="totalCreditHoursLabel" destination="z8h-Og-9Eb" id="Vhc-E7-fWH"/>
                     </connections>
@@ -457,6 +457,7 @@
                                         <state key="normal" title="Update"/>
                                         <connections>
                                             <action selector="updateButtonPressed:" destination="tdA-Gs-if0" eventType="touchUpInside" id="H7A-ou-bF6"/>
+                                            <segue destination="vz9-ll-eqJ" kind="unwind" unwindAction="unwindToClassListWithSender:" id="QC7-M9-2fQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -476,6 +477,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-rz-W1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vz9-ll-eqJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2054" y="-12"/>
         </scene>

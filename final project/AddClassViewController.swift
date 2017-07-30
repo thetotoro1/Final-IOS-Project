@@ -238,7 +238,6 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         
         super.prepare(for: segue, sender: sender)
         
-        print("preparing to segue back")
         
         guard let button = sender as? UIButton, button === addClassButton else {
             print("error in sender addClassButton")

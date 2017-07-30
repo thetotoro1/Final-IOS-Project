@@ -17,13 +17,12 @@ class GPATableViewCell: UITableViewCell {
         
         
         if let newGPAEntry = gpaEntry.gpaPoints{
-            gradePointsLabel.text = String(newGPAEntry)
+            gradePointsLabel.text = "+ \(newGPAEntry) GPA Points"
         }
         else{
             gradePointsLabel.text = ""
         }
         
-        print("cell decorated")
     }
     
 }
