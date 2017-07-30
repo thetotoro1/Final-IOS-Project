@@ -3,12 +3,13 @@ import UIKit
 class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var totalCreditHoursLabel: UILabel!
     @IBOutlet weak var projectedGPALabel: UILabel!
-    fileprivate var model = GPAListModel()
     @IBOutlet weak var previousHoursLabel: UILabel!
     @IBOutlet weak var previousGPALabel: UILabel!
+    
+    fileprivate var model = GPAListModel()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,21 +22,23 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         
-        navigationItem.leftBarButtonItem = editButtonItem
-        
         
         
         tableView.delegate = self
         tableView.dataSource = self
 
-        
-        
+       
+        /*
         //test tableview
-
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: "", gpaPoints: 12))
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "", replacementGrade: false, oldGrade: "", gpaPoints: nil))
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: true, oldGrade: "D", gpaPoints: 1.3))
-
+        previousHoursLabel.text = "1.7"
+        model.previousCreditHours = 3
+        previousGPALabel.text = "1.7"
+        model.previousGPA = 1.7
+        
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 3, projectedGrade: "A", replacementGrade: false, oldGrade: "", gpaPoints: 12))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 3, projectedGrade: "", replacementGrade: false, oldGrade: "", gpaPoints: nil))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "A", replacementGrade: true, oldGrade: "C-", gpaPoints: 6.9))
+        */
         updateTotals()
     }
 
@@ -43,7 +46,7 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
     func updateTotals(){
         
         totalCreditHoursLabel.text = String(model.getOverallCreditHours())
-        projectedGPALabel.text = String(model.getOveralGPA())
+        projectedGPALabel.text = String(format: "%.2f", model.getOveralGPA())
         
         
     }

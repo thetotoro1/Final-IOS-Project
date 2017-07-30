@@ -13,7 +13,7 @@ class GPAListModel {
     var totalCreditHours: Int = 0
     var ProjectedGPA: Double = 0
     
-   
+    
     
     
     var count: Int {
@@ -23,7 +23,7 @@ class GPAListModel {
     func addGPAEntry(gpaEntry: GPAEntry){
         gpaEntries.append(gpaEntry)
     }
-
+    
     func editGPAEntry(at index: Int, gpaEntry: GPAEntry){
         gpaEntries[index] = gpaEntry
     }
@@ -38,32 +38,46 @@ class GPAListModel {
         return gpaEntries.element(at: index)
     }
     
-
+    
     func getOverallCreditHours() -> Int {
         var creditHourTotal: Int = previousCreditHours
         for gpaEntry in gpaEntries {
-            creditHourTotal = creditHourTotal + gpaEntry.creditHours
+            if !gpaEntry.replacementGrade {
+                creditHourTotal = creditHourTotal + gpaEntry.creditHours
+            }
         }
         return creditHourTotal
     }
     
     func getOveralGPA() -> Double {
+        
         var totalGPAPoints: Double = previousGPA * Double(previousCreditHours)
+        var creditHourTotal: Int = previousCreditHours
         
         
-        
+        //loop through gpa entries and if it has gpaPoints add points and if it isnt a replacment add the credit hours
         for gpaEntry in gpaEntries {
             if let gpaPoints = gpaEntry.gpaPoints{
+                
+                if !gpaEntry.replacementGrade {
+                    creditHourTotal = creditHourTotal + gpaEntry.creditHours
+                    
+                }
+                
+                
                 totalGPAPoints = totalGPAPoints + gpaPoints
             }
         }
         
-        var creditHourTotal: Int = previousCreditHours
-        for gpaEntry in gpaEntries {
-            creditHourTotal = creditHourTotal + gpaEntry.creditHours
+        
+        if creditHourTotal == 0 {
+            return 0
         }
         
         let newGPA = totalGPAPoints / Double(creditHourTotal)
+        
+        print("total gpa Points: \(totalGPAPoints) / \(creditHourTotal) = \(newGPA)")
+        
         
         return newGPA
     }
