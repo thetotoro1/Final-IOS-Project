@@ -4,6 +4,7 @@ class EditOldGPAViewController: UIViewController {
     @IBOutlet weak var creditHourTextField: UITextField!
     @IBOutlet weak var gpaTextField: UITextField!
     
+    @IBOutlet weak var updateButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +23,12 @@ class EditOldGPAViewController: UIViewController {
     
     @IBAction func updateButtonPressed(_ sender: UIButton) {
     }
+    
+    
+    
+    
+    
+    
 }
 
 extension EditOldGPAViewController: UITextFieldDelegate {

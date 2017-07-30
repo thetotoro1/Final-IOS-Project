@@ -6,7 +6,7 @@ struct GPAEntry{
     let projectedGrade: String
     let replacementGrade: Bool
     let oldGrade: String
-    let gpaPoints: Int
+    let gpaPoints: Double?
 }
 
 

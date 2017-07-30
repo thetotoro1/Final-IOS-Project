@@ -13,7 +13,15 @@ class GPATableViewCell: UITableViewCell {
         classNameLabel.text = gpaEntry.name
         creditHourLabel.text = String(gpaEntry.creditHours)
         gradeLabel.text = gpaEntry.projectedGrade
-        gradePointsLabel.text = "Test"
+        
+        
+        
+        if let newGPAEntry = gpaEntry.gpaPoints{
+            gradePointsLabel.text = String(newGPAEntry)
+        }
+        else{
+            gradePointsLabel.text = ""
+        }
         
         print("cell decorated")
     }

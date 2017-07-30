@@ -7,6 +7,14 @@ class GPAListModel {
     
     private var GPAEntries = [GPAEntry]()
     
+    var previousCreditHours: Int = 0
+    var previousGPA: Double = 0
+    
+    var totalCreditHours: Int = 0
+    var ProjectedGPA: Double = 0
+    
+   
+    
     
     var count: Int {
         return GPAEntries.count

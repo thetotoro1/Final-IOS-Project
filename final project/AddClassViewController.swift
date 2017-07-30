@@ -58,6 +58,20 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         
         
         addClassButton.isEnabled = false
+        
+        
+        
+        
+        if let gpaEntry = gpaEntry {
+            nameTextField.text = gpaEntry.name
+            creditHourTextField.text = String(gpaEntry.creditHours)
+            projectedGradeTextField.text = gpaEntry.projectedGrade
+            replacementSwitch.isOn = gpaEntry.replacementGrade
+            oldGradeTextField.text = gpaEntry.oldGrade
+        }
+        
+        updateScreen()
+        
     }
     
     
@@ -77,38 +91,95 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
             oldGradeTextField.isHidden = true
             oldGradeLabel.isHidden = true
         }
+        updateScreen()
     }
+    
+    
+    
+    @IBAction func projectedGradeChanged(_ sender: UITextField) {
+        print("projected grade changed")
+        updateScreen()
+    }
+    
+    
+ 
+    
+    
+    @IBAction func oldGradeChanged(_ sender: UITextField) {
+        print("oldgrade changed")
+        updateScreen()
+    }
+    
+    
+    
+    
+    
     
     @IBAction func addClassButtonPressed(_ sender: UIButton) {
         
     }
     
     @IBAction func nameTextFieldEdited(_ sender: UITextField) {
-        checkValidation()
+        updateScreen()
     }
    
     @IBAction func creditHourTextFieldEdited(_ sender: UITextField) {
-        checkValidation()
+        updateScreen()
     }
 
-    func checkValidation(){
+    
+    func updateScreen(){
+        
         guard
             let nameTextString = nameTextField.text,
             let creditHourString = creditHourTextField.text,
-            let creditHourDouble = Double(creditHourString)
+            let creditHourInt = Int(creditHourString)
             else {
-            addClassButton.isEnabled = false
-            return
+                addClassButton.isEnabled = false
+                return
         }
         
-        
-        if model.checkValidation(className:  nameTextString, creditHours: creditHourDouble) {
-            addClassButton.isEnabled = true
+        if replacementSwitch.isOn {
+            
+            oldGradeTextField.isHidden = false
+            oldGradeLabel.isHidden = false
+            
+            
+            guard
+            let projectedGradeString = projectedGradeTextField.text,
+            let oldGradeString = oldGradeTextField.text
+            else {
+                addClassButton.isEnabled = false
+                return
+            }
+            
+            
+            
+            if model.checkReplacementValidation(className:  nameTextString, creditHours: creditHourInt, newGrade: projectedGradeString, oldGrade: oldGradeString){
+                addClassButton.isEnabled = true
+                //print("\(nameTextString) - \(creditHourInt) - \(projectedGradeString) - \(oldGradeString)")
+            }
+            else{
+                addClassButton.isEnabled = false
+                return
+            }
         }
-        else {
-            return
+        else{
+            
+            
+            
+            
+            if model.checkValidation(className:  nameTextString, creditHours: creditHourInt) {
+                
+                addClassButton.isEnabled = true
+            }
+            else {
+                return
+            }
         }
     }
+    
+  
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -184,14 +255,13 @@ class AddClassViewController: UIViewController, UIPickerViewDelegate {
         
         let projectedGrade = projectedGradeTextField.text ?? ""
         let replacementGrade = replacementSwitch.isOn
+        let gpaPoints = model.calculateGPAPoints(creditHours: creditHours, projectedGrade: projectedGrade, isReplacementGrade: replacementGrade, oldGrade: oldGrade)
 
         print("seting gpaEntry")
-        gpaEntry = GPAEntry(name: className, creditHours: creditHours, projectedGrade: projectedGrade, replacementGrade: replacementGrade, oldGrade: oldGrade, gpaPoints: 12)
+        gpaEntry = GPAEntry(name: className, creditHours: creditHours, projectedGrade: projectedGrade, replacementGrade: replacementGrade, oldGrade: oldGrade, gpaPoints: gpaPoints)
     }
-    
-    
   
-    
+
     
 }
 

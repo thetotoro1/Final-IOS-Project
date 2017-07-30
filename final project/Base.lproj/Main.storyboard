@@ -35,7 +35,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of8-K9-sfb">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of8-K9-sfb" userLabel="Previous Hours Number Label">
                                                 <rect key="frame" x="147" y="0.0" width="28" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -47,7 +47,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SK-Jh-bV8">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SK-Jh-bV8" userLabel="Previous GPA Number">
                                                 <rect key="frame" x="271" y="0.0" width="24.5" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -136,6 +136,7 @@
                                             <outlet property="creditHourLabel" destination="YQO-OL-bhb" id="HEs-2s-YOg"/>
                                             <outlet property="gradeLabel" destination="JQl-dw-yUm" id="oGu-ZZ-y6z"/>
                                             <outlet property="gradePointsLabel" destination="fad-8z-dgT" id="gk9-2F-3Nd"/>
+                                            <segue destination="rdC-rF-lgm" kind="show" identifier="showGPAEntryDetails" id="0PU-2Q-3lE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -146,34 +147,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m0O-Tg-VY5" userLabel="Totals Stack View">
                                         <rect key="frame" x="9.5" y="0.0" width="356.5" height="128"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GlU-Cn-jUX" userLabel="Total Credit Hours">
-                                                <rect key="frame" x="0.0" y="0.0" width="356.5" height="42.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Current GPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sct-Ft-qvQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="95.5" height="42.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKT-rk-l6a" userLabel="gpaCurrentLabel">
-                                                        <rect key="frame" x="332" y="0.0" width="24.5" height="42.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="neZ-Ok-l8X" userLabel="Current GPA Stack View">
-                                                <rect key="frame" x="0.0" y="42.5" width="356.5" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="356.5" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projected GPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EGW-Ih-Suh" userLabel="Projected GPA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="64"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-XV-3q9" userLabel="gpaProjectedGPALabel">
-                                                        <rect key="frame" x="332" y="0.0" width="24.5" height="43"/>
+                                                        <rect key="frame" x="332" y="0.0" width="24.5" height="64"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -181,16 +165,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-fd-wjx" userLabel="Projected GPA Stack View">
-                                                <rect key="frame" x="0.0" y="85.5" width="356.5" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="64" width="356.5" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Total Credit Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cE-U6-Yyp" userLabel="Total Credit Hours">
-                                                        <rect key="frame" x="0.0" y="0.0" width="139" height="42.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="139" height="64"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="128" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8h-Og-9Eb" userLabel="totalCreditHoursLabel">
-                                                        <rect key="frame" x="328.5" y="0.0" width="28" height="42.5"/>
+                                                        <rect key="frame" x="328.5" y="0.0" width="28" height="64"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -227,11 +211,13 @@
                     <navigationItem key="navigationItem" title="GPA Calculator" id="ZXw-gv-luk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FtI-5i-QNk">
                             <connections>
-                                <segue destination="rdC-rF-lgm" kind="show" id="deS-Y3-P8w"/>
+                                <segue destination="rdC-rF-lgm" kind="show" identifier="AddClass" id="deS-Y3-P8w"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="previousGPALabel" destination="5SK-Jh-bV8" id="l8x-xE-wi6"/>
+                        <outlet property="previousHoursLabel" destination="of8-K9-sfb" id="BAW-ae-5iH"/>
                         <outlet property="projectedGradeLabel" destination="iGf-XV-3q9" id="LEI-X3-br0"/>
                         <outlet property="tableView" destination="GBF-ch-XKq" id="qlQ-bo-Hbu"/>
                         <outlet property="totalCreditHoursLabel" destination="z8h-Og-9Eb" id="Vhc-E7-fWH"/>
@@ -289,7 +275,7 @@
                                                 <rect key="frame" x="169" y="0.0" width="168.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
                                                     <action selector="creditHourTextFieldEdited:" destination="rdC-rF-lgm" eventType="editingChanged" id="yXh-kx-fqd"/>
                                                 </connections>
@@ -310,6 +296,11 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="projectedGradeChanged:" destination="rdC-rF-lgm" eventType="editingDidEnd" id="06G-kS-ALy"/>
+                                                    <action selector="projectedGradeChanged:" destination="rdC-rF-lgm" eventType="editingChanged" id="Ncz-ry-Zyj"/>
+                                                    <action selector="projectedGradeChanged:" destination="rdC-rF-lgm" eventType="valueChanged" id="bJH-oS-amg"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -332,12 +323,12 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Udu-5Q-dWk">
                                                 <rect key="frame" x="288.5" y="0.0" width="51" height="31"/>
                                                 <connections>
-                                                    <action selector="replacementSwitchPressed:" destination="rdC-rF-lgm" eventType="valueChanged" id="A0o-Ho-iLG"/>
+                                                    <action selector="replacementSwitchPressed:" destination="rdC-rF-lgm" eventType="valueChanged" id="DbH-xD-Kw9"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gpQ-Jq-gdU">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gpQ-Jq-gdU" userLabel="Old Grade Stack View">
                                         <rect key="frame" x="0.0" y="166" width="337.5" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN7-tS-ehS">
@@ -346,11 +337,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFl-rQ-EAq" userLabel="Old Grade Label">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFl-rQ-EAq" userLabel="Old Grade Text Field">
                                                 <rect key="frame" x="169" y="0.0" width="168.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="oldGradeChanged:" destination="rdC-rF-lgm" eventType="editingChanged" id="7cO-zs-Rqp"/>
+                                                    <action selector="oldGradeChanged:" destination="rdC-rF-lgm" eventType="editingDidEnd" id="pwG-cw-deC"/>
+                                                    <action selector="projectedGradeChanged:" destination="rdC-rF-lgm" eventType="valueChanged" id="uCF-Fs-0c3"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -476,6 +472,7 @@
                     <connections>
                         <outlet property="creditHourTextField" destination="cKI-nU-O2R" id="PuU-Tq-Am2"/>
                         <outlet property="gpaTextField" destination="lgE-nn-r6h" id="vcG-Uq-WOk"/>
+                        <outlet property="updateButton" destination="QV1-5f-kl9" id="Miu-8t-z9W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DD7-rz-W1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -501,4 +498,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="-560.86956521739137"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0PU-2Q-3lE"/>
+    </inferredMetricsTieBreakers>
 </document>

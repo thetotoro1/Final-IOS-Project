@@ -7,11 +7,18 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var totalCreditHoursLabel: UILabel!
     @IBOutlet weak var projectedGradeLabel: UILabel!    
     fileprivate var model = GPAListModel()
+    @IBOutlet weak var previousHoursLabel: UILabel!
+    @IBOutlet weak var previousGPALabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
+        previousHoursLabel.text = String(model.previousCreditHours)
+        previousGPALabel.text = String(model.previousGPA)
+        totalCreditHoursLabel.text = String(model.totalCreditHours)
+        projectedGradeLabel.text = String(model.ProjectedGPA)
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -19,11 +26,11 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         //test tableview
-/*
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: ""))
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "B", replacementGrade: false, oldGrade: ""))
-        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: false, oldGrade: ""))
-*/
+
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test", creditHours: 1, projectedGrade: "A", replacementGrade: false, oldGrade: "", gpaPoints: 10))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test2", creditHours: 2, projectedGrade: "B", replacementGrade: false, oldGrade: "", gpaPoints: 12))
+        model.addGPAEntry(gpaEntry: GPAEntry(name: "Test3", creditHours: 3, projectedGrade: "D+", replacementGrade: true, oldGrade: "D", gpaPoints: 3))
+
     }
 
     
@@ -61,23 +68,42 @@ class GPAListViewController: UIViewController, UITableViewDelegate, UITableViewD
                 return UITableViewCell()
         }
         
-
-        
-        
-        print("trying to decorate")
-        
-        print("\(gpaEntry.name) - \(gpaEntry.creditHours) - \(gpaEntry.projectedGrade)")
-        
-        
         cell.decorate(with: gpaEntry)
-        
-        
-        
-        
- 
+
         return cell
  
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddClass":
+            print("q to add class")
+        case "showGPAEntryDetails":
+            guard let addClassDetailsViewController = segue.destination as? AddClassViewController else {
+                return
+            }
+            
+            guard let selectedGPAEntryCell = sender as? GPATableViewCell else {
+                return
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedGPAEntryCell) else {
+                return
+            }
+            
+            let selectedMeal = model.getEntry(atIndex: indexPath.row)
+            addClassDetailsViewController.gpaEntry = selectedMeal
+            
+        default:
+            print("Error in prepare in gpalistviewcontroller")
+        }
+    }
+    
     
     
     
